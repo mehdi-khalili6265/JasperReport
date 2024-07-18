@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Latter_FAjrxml" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d146f9b-e913-46d7-802e-243c817a60e0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Apex T1 Adapter"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="ireport.jasperserver.url" value="http://localhost:6060/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/Apex_Report/Latter_FA_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/Apex_Report/Latter_FA"/>
+	<parameter name="P_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 
+    "MAH_2"."COR_EXPORT_LATTER"."ID",
+	"TO_LATTER",
+	"POST_TO_LATTER",
+	"LATTER_TITLE",
+	"LATTER_DATE",
+	"LATTER_NUMBER",
+	"LATTER_ATTACHMENT",
+	"SIGNATORY_PERSON_LATTER",
+	"SIGNATORY_POST_LATTER",
+	"LATTER_DESCRIPTION_F",
+	"COR_HEADER_CLOB",
+	"CLOB_SIGNATURE",
+    "HEADER_LATTER",
+    "SIGNATURE_ELECTRONIC",
+    "FULL_NAME"
+
+FROM "MAH_2"."COR_EXPORT_LATTER" 
+join  "MAH_2"."COR_SECRETARIAT" 
+ON "MAH_2"."COR_EXPORT_LATTER"."SECRETARIAT_TITLE" = "MAH_2"."COR_SECRETARIAT"."COR_SECRETARIAT_TITLE"
+JOIN "MAH_2".HR_PERSONAL_INFORMATION  ON "MAH_2"."COR_EXPORT_LATTER".SIGNATORY_PERSON_LATTER=(select USER_NAME from "MAH_2".users  where "MAH_2".users.PERSONAL_ID="MAH_2".HR_PERSONAL_INFORMATION.PERSONAL_ID)
+join "MAH_2".HR_GET_CLOB_ELECTRONIC_SIGNATURE on "MAH_2".HR_GET_CLOB_ELECTRONIC_SIGNATURE.PERSONAL_REF="MAH_2".HR_PERSONAL_INFORMATION.id
+where "MAH_2"."COR_EXPORT_LATTER"."ID"= $P{P_ID} 
+
+
+ ]]>
+	</queryString>
+	<field name="ID" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+	</field>
+	<field name="TO_LATTER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TO_LATTER"/>
+		<property name="com.jaspersoft.studio.field.label" value="TO_LATTER"/>
+	</field>
+	<field name="POST_TO_LATTER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="POST_TO_LATTER"/>
+		<property name="com.jaspersoft.studio.field.label" value="POST_TO_LATTER"/>
+	</field>
+	<field name="LATTER_TITLE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LATTER_TITLE"/>
+		<property name="com.jaspersoft.studio.field.label" value="LATTER_TITLE"/>
+	</field>
+	<field name="LATTER_DATE" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="LATTER_DATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="LATTER_DATE"/>
+	</field>
+	<field name="LATTER_NUMBER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LATTER_NUMBER"/>
+		<property name="com.jaspersoft.studio.field.label" value="LATTER_NUMBER"/>
+	</field>
+	<field name="LATTER_ATTACHMENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LATTER_ATTACHMENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="LATTER_ATTACHMENT"/>
+	</field>
+	<field name="SIGNATORY_PERSON_LATTER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SIGNATORY_PERSON_LATTER"/>
+		<property name="com.jaspersoft.studio.field.label" value="SIGNATORY_PERSON_LATTER"/>
+	</field>
+	<field name="SIGNATORY_POST_LATTER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SIGNATORY_POST_LATTER"/>
+		<property name="com.jaspersoft.studio.field.label" value="SIGNATORY_POST_LATTER"/>
+	</field>
+	<field name="LATTER_DESCRIPTION_F" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LATTER_DESCRIPTION_F"/>
+		<property name="com.jaspersoft.studio.field.label" value="LATTER_DESCRIPTION_F"/>
+	</field>
+	<field name="COR_HEADER_CLOB" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="COR_HEADER_CLOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="COR_HEADER_CLOB"/>
+	</field>
+	<field name="CLOB_SIGNATURE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CLOB_SIGNATURE"/>
+		<property name="com.jaspersoft.studio.field.label" value="CLOB_SIGNATURE"/>
+	</field>
+	<field name="HEADER_LATTER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="HEADER_LATTER"/>
+		<property name="com.jaspersoft.studio.field.label" value="HEADER_LATTER"/>
+	</field>
+	<field name="SIGNATURE_ELECTRONIC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SIGNATURE_ELECTRONIC"/>
+		<property name="com.jaspersoft.studio.field.label" value="SIGNATURE_ELECTRONIC"/>
+	</field>
+	<field name="FULL_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FULL_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="FULL_NAME"/>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<image>
+				<reportElement x="0" y="0" width="575" height="802" uuid="61a9daa3-eae2-4620-8e46-456e5a7e8a49"/>
+				<imageExpression><![CDATA[$F{HEADER_LATTER}.equals("N") ? null : new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($F{COR_HEADER_CLOB}.getBytes()))]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="82" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="30" width="100" height="20" uuid="4f0424cd-09f3-4aae-8376-c1e3623b07b8"/>
+				<textElement>
+					<font fontName="IRANSansWeb(FaNum)"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LATTER_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="5" width="100" height="20" uuid="53322c13-a271-4dce-9c4b-203ece7f64f2"/>
+				<textElement>
+					<font fontName="IRANSansWeb(FaNum)"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LATTER_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="50" width="130" height="24" uuid="00f881be-025e-467b-944a-605ae84087a0"/>
+				<textElement>
+					<font fontName="IRANSansWeb(FaNum)"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LATTER_ATTACHMENT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="78" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="176" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="18" y="77" width="515" height="30" uuid="735a8276-fafb-4c51-bd38-bbe6691e2a54">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="57eabd78-ec1f-4f27-827f-084706f8448d"/>
+				</reportElement>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="IRANSansWeb(FaNum)"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LATTER_DESCRIPTION_F}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="4" width="343" height="20" uuid="4fd290bb-ca13-470a-8405-88f4d6bc0373">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d3cd06b-53e1-4d6f-9c17-d0ae30977db4"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="IRANSansWeb(FaNum)" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TO_LATTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="26" width="343" height="22" uuid="29aafac1-6b6c-47f8-ac56-360579f4f520">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4475e4bf-0e1e-4f09-8c13-17555e77802a"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="IRANSansWeb(FaNum)" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{POST_TO_LATTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="51" width="397" height="23" uuid="747ef9ee-b89b-43a6-9ea8-4aaafef238bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="365d0e9b-73de-4c81-9490-f245b35a63b3"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="IRANSansWeb(FaNum)"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LATTER_TITLE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="52" width="60" height="20" uuid="c31ee068-6cf7-4808-a196-58f6e9d80ee8">
+					<property name="com.jaspersoft.studio.element.name" value="موضوع نامه :"/>
+				</reportElement>
+				<textElement>
+					<font fontName="IRANSansWeb(FaNum)" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["موضوع نامه :"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="77" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="55" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="41" width="100" height="17" uuid="f8915fe9-507c-43e9-a187-29e3dbd20a1a"/>
+				<textElement textAlignment="Center">
+					<font fontName="IRANSansWeb(FaNum)"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SIGNATORY_POST_LATTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="24" width="100" height="15" uuid="0d0a896c-3cdf-4681-95ef-29ba17962ae5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{FULL_NAME}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="69" y="6" width="86" height="78" uuid="fe8e5e61-8f20-4246-8821-2787aca488ba"/>
+				<imageExpression><![CDATA[$F{SIGNATURE_ELECTRONIC}.equals("N") ? null : new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($F{CLOB_SIGNATURE}.getBytes()))]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>
