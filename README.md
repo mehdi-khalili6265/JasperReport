@@ -87,5 +87,5 @@ v_report_url  := 'http://' || v_hostname || ':' || v_port || '/jasperserver/rest
  INSERT INTO COR_EXPORT_LATTER_DOCUMENT (FILE_NAME,DOCUMENT_LATTER,MIME_TYPE,ID_REF)
   VALUES (v_file_name, v_blob,'application/pdf',:P254_ID);
 END;
-![image](https://github.com/user-attachments/assets/ba167a55-4ec4-4a0e-9967-4e625dd43fb1)
+
 
